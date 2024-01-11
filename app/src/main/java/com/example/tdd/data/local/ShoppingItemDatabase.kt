@@ -1,4 +1,4 @@
-package com.example.tdd.local
+package com.example.tdd.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
@@ -8,6 +8,5 @@ import androidx.room.RoomDatabase
     version = 1
 )
 abstract class ShoppingItemDatabase : RoomDatabase() {
-
     abstract fun shoppingDao(): ShoppingDao
 }
