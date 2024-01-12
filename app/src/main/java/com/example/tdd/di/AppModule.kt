@@ -2,10 +2,13 @@ package com.example.tdd.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.tdd.data.local.ShoppingDao
 import com.example.tdd.data.local.ShoppingItemDatabase
 import com.example.tdd.data.remote.response.PixaBayApi
 import com.example.tdd.other.Constants.BASE_URL
 import com.example.tdd.other.Constants.DATABASE_NAME
+import com.example.tdd.repository.DefaultShoppingRepository
+import com.example.tdd.repository.ShoppingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,6 +27,14 @@ object AppModule {
     fun provideShoppingItemDatabase(
         @ApplicationContext context: Context
     ) = Room.databaseBuilder(context, ShoppingItemDatabase::class.java, DATABASE_NAME).build()
+
+
+    @Singleton
+    @Provides
+    fun provideDefaultShoppingRepository(
+        shoppingDao: ShoppingDao,
+        api: PixaBayApi
+    ) = DefaultShoppingRepository(shoppingDao, api) as ShoppingRepository
 
     @Singleton
     @Provides
