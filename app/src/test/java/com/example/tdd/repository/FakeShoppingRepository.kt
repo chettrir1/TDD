@@ -1,4 +1,4 @@
-package com.example.tdd.data.repository
+package com.example.tdd.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

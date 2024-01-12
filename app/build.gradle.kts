@@ -15,7 +15,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("String", "API_KEY", "41769248-fc160be9c940b80a25b5f3284")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -89,8 +88,9 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.8.2")
 
     /*Dagger Hilt*/
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("com.google.dagger:hilt-android:2.46")
+    kapt("com.google.dagger:hilt-android-compiler:2.46")
+    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
 
     /*Timber*/
     implementation("com.jakewharton.timber:timber:5.0.1")

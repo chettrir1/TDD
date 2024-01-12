@@ -8,7 +8,6 @@ import com.example.tdd.R
 
 class ImagePickFragment : Fragment(R.layout.fragment_image_pick) {
 
-
     lateinit var viewModel: ShoppingViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

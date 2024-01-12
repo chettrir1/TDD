@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="#efaefa"
         app:fabSize="normal"
         app:layout_anchor="@id/clShoppingItems"
         app:layout_anchorGravity="bottom|right|end"
