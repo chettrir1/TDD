@@ -90,7 +90,7 @@ dependencies {
     /*Dagger Hilt*/
     implementation("com.google.dagger:hilt-android:2.46")
     kapt("com.google.dagger:hilt-android-compiler:2.46")
-    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
+    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.6.0")
 
     /*Timber*/
     implementation("com.jakewharton.timber:timber:5.0.1")
@@ -116,7 +116,7 @@ dependencies {
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.46")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.46")
     debugImplementation("androidx.fragment:fragment-testing:1.7.0-alpha08")
-
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1")
 }
 
 kapt {

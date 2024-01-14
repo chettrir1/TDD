@@ -8,14 +8,20 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.tdd.adapter.ImageAdapter
 import com.example.tdd.databinding.FragmentImagePickBinding
+import com.example.tdd.other.Constants.GRID_SPAN_COUNT
+import javax.inject.Inject
 
-class ImagePickFragment : Fragment() {
+class ImagePickFragment @Inject constructor(
+    val imageAdapter: ImageAdapter
+) : Fragment() {
 
     private var _binding: FragmentImagePickBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: ShoppingViewModel
+    lateinit var viewModel: ShoppingViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +41,7 @@ class ImagePickFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity())[ShoppingViewModel::class.java]
-
+        setUpRecyclerView()
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 viewModel.setCurrentUrl("")
@@ -43,5 +49,17 @@ class ImagePickFragment : Fragment() {
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
+
+        imageAdapter.setOnItemClickListener {
+            findNavController().popBackStack()
+            viewModel.setCurrentUrl(it)
+        }
+    }
+
+    private fun setUpRecyclerView() {
+        binding.rvImages.apply {
+            adapter = imageAdapter
+            layoutManager = GridLayoutManager(requireContext(), GRID_SPAN_COUNT)
+        }
     }
 }

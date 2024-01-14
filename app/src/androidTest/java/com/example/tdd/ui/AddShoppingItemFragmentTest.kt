@@ -31,7 +31,6 @@ class AddShoppingItemFragmentTest {
         hiltRule.inject()
     }
 
-
     @Test
     fun pressBackButton_popBackStack() {
         val navController = Mockito.mock(NavController::class.java)
