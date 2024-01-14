@@ -11,6 +11,11 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.core.internal.deps.guava.base.Preconditions
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+
+/**
+ * creating a fragment launcher that helps...
+ * ..to attach our fragment to custom hilt activity
+ */
 @ExperimentalCoroutinesApi
 inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     fragmentArgs: Bundle? = null,
@@ -18,12 +23,24 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     fragmentFactory: FragmentFactory? = null,
     crossinline action: T.() -> Unit = {}
 ) {
+    /**
+     * defined activity because each application..
+     * ..needs a activity and in test environment we
+     * ..don't have it in default
+     */
     val mainActivityIntent = Intent.makeMainActivity(
         ComponentName(
             ApplicationProvider.getApplicationContext(),
             HiltTestActivity::class.java
         )
     ).putExtra(THEME_EXTRAS_BUNDLE_KEY, themeResId)
+
+    /**
+     * Created ActivityScenario to launch our activity with..
+     * the mainActivityIntent, and in onActivity function we
+     * ..get reference to that activity and instantiate our
+     * fragment if we have one
+     */
 
     ActivityScenario.launch<HiltTestActivity>(mainActivityIntent).onActivity { activity ->
         fragmentFactory?.let {
@@ -35,5 +52,10 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
         )
 
         fragment.arguments = fragmentArgs
+
+        activity.supportFragmentManager.beginTransaction()
+            .add(android.R.id.content, fragment, "")
+            .commitNow()
+        (fragment as T).action()
     }
 }
