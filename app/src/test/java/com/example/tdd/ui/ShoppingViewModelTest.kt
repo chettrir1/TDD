@@ -1,15 +1,18 @@
 package com.example.tdd.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.tdd.MainCoroutineRule
 import com.example.tdd.getOrAwaitValue
 import com.example.tdd.other.Constants
 import com.example.tdd.other.Status
 import com.example.tdd.repository.FakeShoppingRepository
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class ShoppingViewModelTest {
 
     private lateinit var viewModel: ShoppingViewModel
@@ -17,6 +20,9 @@ class ShoppingViewModelTest {
 
     @get:Rule
     var instantTaskExecutor = InstantTaskExecutorRule()
+
+    @get:Rule
+    var mainCoroutineRule = MainCoroutineRule()
 
     @Before
     fun setUp() {
