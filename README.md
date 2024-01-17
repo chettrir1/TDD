@@ -10,7 +10,7 @@ Make sure you have the following installed:
 
 ## Installation
 - Clone this repository to your local machine:
-> git clone https://github.com/your-username/android-tdd-practice.git
+> git clone https://github.com/chettrir1/TDD.git
 - Open the project in Android Studio.
 - Ensure that the required dependencies are resolved by syncing the project.
 
