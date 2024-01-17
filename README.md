@@ -1,8 +1,8 @@
 # Android Test-Driven Development (TDD) Practice
 ## Overview
-Welcome to the Android Test-Driven Development (TDD) practice repository. This project is designed for honing your Android development skills through TDD methodologies. TDD involves writing tests before implementing the actual code, promoting a more robust and reliable codebase.
-## Getting Started
+Welcome to the Android Test-Driven Development (TDD) practice repository. This project is designed to hone your Android development skills through TDD methodologies. TDD involves writing tests before implementing the actual code, promoting a more robust and reliable codebase.
 
+## Getting Started
 **Prerequisites**<br/> 
 Make sure you have the following installed:
 - Android Studio
