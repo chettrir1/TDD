@@ -1,16 +1,16 @@
 # Android Test-Driven Development (TDD) Practice
 ## Overview
-### Welcome to the Android Test-Driven Development (TDD) practice repository. This project is designed for honing your Android development skills through TDD methodologies. TDD involves writing tests before implementing the actual code, promoting a more robust and reliable codebase.
+Welcome to the Android Test-Driven Development (TDD) practice repository. This project is designed for honing your Android development skills through TDD methodologies. TDD involves writing tests before implementing the actual code, promoting a more robust and reliable codebase.
 ## Getting Started
 
-### Prerequisites
+**Prerequisites**<br/> 
 Make sure you have the following installed:
-Android Studio
-JUnit
+- Android Studio
+- JUnit
 
 ## Installation
 - Clone this repository to your local machine:
-### git clone https://github.com/your-username/android-tdd-practice.git
+> git clone https://github.com/your-username/android-tdd-practice.git
 - Open the project in Android Studio.
 - Ensure that the required dependencies are resolved by syncing the project.
 
